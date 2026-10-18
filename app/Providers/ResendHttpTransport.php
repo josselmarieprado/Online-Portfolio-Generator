@@ -18,23 +18,36 @@ class ResendHttpTransport extends AbstractTransport
     protected function doSend(SentMessage $message): void
     {
         $email = MessageConverter::toEmail($message->getOriginalMessage());
-        $list = fn (array $a) => array_map(fn (Address $x) => $x->toString(), $a);
 
-        Http::withToken($this->key)
-            ->post('https://api.resend.com/emails', array_filter([
-                'from' => $email->getFrom()[0]->toString(),
-                'to' => $list($email->getTo()),
-                'cc' => $list($email->getCc()),
-                'bcc' => $list($email->getBcc()),
-                'subject' => $email->getSubject(),
-                'html' => $email->getHtmlBody(),
-                'text' => $email->getTextBody(),
-            ]))
-            ->throw();
+        $people = fn (array $list) => array_map(
+            fn (Address $a) => array_filter([
+                'email' => $a->getAddress(),
+                'name' => $a->getName(),
+            ]),
+            $list
+        );
+
+        $from = $email->getFrom()[0];
+
+        Http::withHeaders([
+            'api-key' => $this->key,
+            'accept' => 'application/json',
+        ])->post('https://api.brevo.com/v3/smtp/email', array_filter([
+            'sender' => array_filter([
+                'email' => $from->getAddress(),
+                'name' => $from->getName(),
+            ]),
+            'to' => $people($email->getTo()),
+            'cc' => $people($email->getCc()),
+            'bcc' => $people($email->getBcc()),
+            'subject' => $email->getSubject(),
+            'htmlContent' => $email->getHtmlBody(),
+            'textContent' => $email->getTextBody(),
+        ]))->throw();
     }
 
     public function __toString(): string
     {
-        return 'resend-http';
+        return 'brevo-http';
     }
 }
