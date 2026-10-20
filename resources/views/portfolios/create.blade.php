@@ -7,201 +7,137 @@
 
     <style>
         :root {
-            --lavender-light: #EEEAFD;
-            --lavender-soft: #D8CAF6;
-            --lavender-medium: #C2A9EF;
-            --lavender-purple: #AC88E8;
-            --lavender-deep: #9667DE;
-            --purple-dark: #7045B5;
-            --background: #F8F6FF;
-            --surface: #FFFFFF;
-            --text: #302344;
-            --muted: #786D8D;
-            --border: #E5DCF5;
-            --danger: #D94462;
+            --primary: #1976d2;
+            --primary-dark: #125eaa;
+            --background: #f5f8fc;
+            --surface: #ffffff;
+            --text: #202733;
+            --muted: #687386;
+            --border: #e2e8f0;
+            --danger: #dc3545;
+            --danger-bg: #fff2f3;
+            --success: #16834a;
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            background:
-                radial-gradient(
-                    circle at top right,
-                    rgba(194, 169, 239, 0.22),
-                    transparent 35%
-                ),
-                var(--background);
+            background: var(--background);
             color: var(--text);
             line-height: 1.6;
         }
 
-        button, input, textarea, select {
-            font: inherit;
-        }
-
-        a {
-            text-decoration: none;
-        }
+        button, input, textarea, select { font: inherit; }
+        a { text-decoration: none; }
 
         /* NAVIGATION */
-
         .navbar {
             position: sticky;
             top: 0;
             z-index: 100;
-            width: 100%;
-            min-height: 72px;
-            background: rgba(255, 255, 255, 0.97);
+            background: rgba(255,255,255,.97);
             border-bottom: 1px solid var(--border);
         }
 
         .nav-inner {
-            width: min(1250px, calc(100% - 40px));
+            width: min(1250px, calc(100% - 36px));
             min-height: 72px;
             margin: auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 22px;
+            gap: 18px;
         }
 
         .brand {
             display: inline-flex;
             align-items: center;
             gap: 9px;
-            color: #38294F;
-            font-size: 21px;
+            color: #244e7b;
+            font-size: 20px;
             font-weight: 800;
             white-space: nowrap;
         }
 
         .brand-icon {
-            color: var(--lavender-deep);
-            font-size: 23px;
+            color: var(--primary);
+            font-size: 24px;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            position: relative;
-            padding: 24px 0;
-            color: #655777;
-            font-size: 13px;
-            font-weight: 700;
-            transition: color .2s;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--lavender-deep);
-        }
-
-        .nav-links a.active::after {
-            position: absolute;
-            bottom: 15px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            border-radius: 5px;
-            background: var(--lavender-deep);
-            content: "";
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .nav-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            gap: 8px;
             min-height: 42px;
-            padding: 10px 17px;
-            border: 1px solid var(--lavender-soft);
-            border-radius: 11px;
-            background: white;
-            color: var(--purple-dark);
-            font-size: 12px;
-            font-weight: 800;
+            padding: 10px 16px;
+            border: 1px solid #d6e0eb;
+            border-radius: 9px;
+            background: #fff;
+            color: #244e7b;
+            font-size: 13px;
+            font-weight: 700;
             transition: .2s;
         }
 
         .nav-button:hover {
-            background: var(--lavender-light);
+            background: #eaf3ff;
+            border-color: var(--primary);
+            color: var(--primary-dark);
         }
 
         .nav-button.primary {
-            background: var(--lavender-deep);
-            border-color: var(--lavender-deep);
-            color: white;
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
         }
 
         .nav-button.primary:hover {
-            background: var(--purple-dark);
+            background: var(--primary-dark);
         }
 
         /* PAGE */
-
         .container {
-            width: min(1100px, calc(100% - 36px));
+            width: min(1080px, calc(100% - 32px));
             margin: auto;
             padding: 35px 0 60px;
         }
 
-        .page-heading {
-            margin-bottom: 25px;
-        }
+        .page-heading { margin-bottom: 24px; }
 
         .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            display: inline-block;
             margin-bottom: 12px;
-            padding: 7px 13px;
-            border: 1px solid var(--lavender-soft);
+            padding: 6px 12px;
             border-radius: 30px;
-            background: var(--lavender-light);
-            color: var(--purple-dark);
+            background: #eaf3ff;
+            color: var(--primary-dark);
             font-size: 11px;
             font-weight: 800;
             letter-spacing: 1px;
         }
 
-        .eyebrow-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--lavender-deep);
-        }
-
         h1 {
             margin: 0 0 12px;
-            font-size: clamp(29px, 4vw, 43px);
+            font-size: clamp(29px, 4vw, 42px);
             line-height: 1.2;
-            letter-spacing: -1.3px;
+            letter-spacing: -1px;
         }
 
-        .gradient-text {
-            color: var(--lavender-deep);
-        }
+        .gradient-text { color: var(--primary); }
 
         .subtitle {
-            max-width: 700px;
+            max-width: 720px;
             margin: 0;
             color: var(--muted);
             font-size: 14px;
@@ -214,10 +150,10 @@
             justify-content: space-between;
             gap: 16px;
             margin-bottom: 22px;
-            padding: 18px 20px;
+            padding: 17px 20px;
             border: 1px solid var(--border);
-            border-radius: 15px;
-            background: rgba(255,255,255,.9);
+            border-radius: 14px;
+            background: #fff;
         }
 
         .progress-copy strong {
@@ -232,10 +168,10 @@
 
         .progress-label {
             flex-shrink: 0;
-            padding: 7px 12px;
+            padding: 7px 11px;
             border-radius: 30px;
-            background: var(--lavender-light);
-            color: var(--purple-dark);
+            background: #eaf3ff;
+            color: var(--primary-dark);
             font-size: 10px;
             font-weight: 800;
         }
@@ -243,26 +179,26 @@
         .form-card {
             padding: 30px;
             border: 1px solid var(--border);
-            border-radius: 22px;
-            background: white;
-            box-shadow: 0 14px 45px rgba(112,69,181,.07);
+            border-radius: 20px;
+            background: #fff;
+            box-shadow: 0 12px 35px rgba(31,65,105,.06);
         }
 
         .section {
-            padding: 27px 0;
+            padding: 26px 0;
             border-top: 1px solid var(--border);
         }
 
         .section:first-child {
             padding-top: 0;
-            border-top: none;
+            border-top: 0;
         }
 
         .section-heading {
             display: flex;
             align-items: flex-start;
             gap: 13px;
-            margin-bottom: 21px;
+            margin-bottom: 20px;
         }
 
         .section-number {
@@ -270,26 +206,23 @@
             flex-shrink: 0;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            background: var(--lavender-light);
-            color: var(--purple-dark);
-            font-size: 15px;
+            width: 39px;
+            height: 39px;
+            border-radius: 11px;
+            background: #eaf3ff;
+            color: var(--primary-dark);
             font-weight: 800;
         }
 
         .section-heading h2 {
-            margin: 0 0 5px;
+            margin: 0 0 4px;
             font-size: 19px;
-            line-height: 1.4;
         }
 
         .section-heading p {
             margin: 0;
             color: var(--muted);
             font-size: 12px;
-            line-height: 1.7;
         }
 
         .grid {
@@ -298,42 +231,31 @@
             gap: 17px;
         }
 
-        .field {
-            min-width: 0;
-            margin-bottom: 17px;
-        }
-
-        .field:last-child {
-            margin-bottom: 0;
-        }
-
-        .full {
-            grid-column: 1 / -1;
-        }
+        .field { min-width: 0; margin-bottom: 16px; }
+        .field:last-child { margin-bottom: 0; }
+        .full { grid-column: 1 / -1; }
 
         .field label {
             display: block;
             margin-bottom: 7px;
-            color: #44365A;
+            color: #344054;
             font-size: 12px;
             font-weight: 700;
         }
 
-        .required {
-            color: var(--danger);
-        }
+        .required { color: var(--danger); }
 
         input:not([type="radio"]):not([type="checkbox"]):not([type="file"]),
         textarea,
         select {
             display: block;
             width: 100%;
-            min-height: 45px;
+            min-height: 44px;
             padding: 11px 13px;
-            border: 1px solid #DCD2EF;
-            border-radius: 10px;
+            border: 1px solid #cfd8e3;
+            border-radius: 9px;
             outline: none;
-            background: white;
+            background: #fff;
             color: var(--text);
             font-size: 13px;
             transition: border-color .2s, box-shadow .2s;
@@ -342,55 +264,50 @@
         input[type="file"] {
             display: block;
             width: 100%;
-            padding: 12px;
-            border: 1px solid #DCD2EF;
-            border-radius: 10px;
-            background: white;
-            color: var(--muted);
+            padding: 11px;
+            border: 1px solid #cfd8e3;
+            border-radius: 9px;
+            background: #fff;
             font-size: 12px;
         }
 
-        input::placeholder,
-        textarea::placeholder {
-            color: #A49AB5;
-        }
+        input::placeholder, textarea::placeholder { color: #98a2b3; }
 
-        input:focus,
-        textarea:focus,
-        select:focus {
-            border-color: var(--lavender-deep);
-            box-shadow: 0 0 0 3px rgba(172,136,232,.15);
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(25,118,210,.12);
         }
 
         textarea {
-            min-height: 115px;
+            min-height: 110px;
             resize: vertical;
         }
 
-        /* INVALID FIELDS */
-
+        /* RED VALIDATION */
         .invalid-field,
         input.invalid-field,
         textarea.invalid-field,
-        select.invalid-field {
+        select.invalid-field,
+        .templates.invalid-field {
             border: 1.5px solid var(--danger) !important;
-            background-color: #FFF8FA !important;
-            box-shadow: 0 0 0 3px rgba(217,68,98,.08) !important;
+            background-color: var(--danger-bg) !important;
+            box-shadow: 0 0 0 3px rgba(220,53,69,.08) !important;
         }
 
         .error {
             margin-top: 6px;
             color: var(--danger);
             font-size: 12px;
+            font-weight: 600;
         }
 
         .error-summary {
             margin-bottom: 22px;
-            padding: 16px 19px;
-            border: 1px solid #F3C6D0;
-            border-radius: 12px;
-            background: #FFF2F4;
-            color: #982B42;
+            padding: 15px 18px;
+            border: 1px solid #f1b9c0;
+            border-radius: 11px;
+            background: var(--danger-bg);
+            color: #a32030;
             font-size: 13px;
         }
 
@@ -403,34 +320,32 @@
             margin: 7px 0 0;
             color: var(--muted);
             font-size: 11px;
-            line-height: 1.6;
         }
 
         /* PHOTO */
-
         .photo-box {
             display: grid;
-            grid-template-columns: 112px minmax(0,1fr);
+            grid-template-columns: 110px minmax(0,1fr);
             align-items: center;
-            gap: 22px;
-            padding: 20px;
+            gap: 20px;
+            padding: 18px;
             border: 1px solid var(--border);
-            border-radius: 15px;
-            background: #FBF9FF;
+            border-radius: 13px;
+            background: #f9fbfe;
         }
 
         .photo-placeholder {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 105px;
-            height: 105px;
+            width: 100px;
+            height: 100px;
             overflow: hidden;
-            border: 3px solid var(--lavender-soft);
+            border: 2px solid #d5e5f8;
             border-radius: 50%;
-            background: var(--lavender-light);
-            color: var(--purple-dark);
-            font-size: 22px;
+            background: #eaf3ff;
+            color: var(--primary-dark);
+            font-size: 17px;
             font-weight: 800;
         }
 
@@ -441,22 +356,16 @@
             object-fit: cover;
         }
 
-        .photo-placeholder.has-image img {
-            display: block;
-        }
+        .photo-placeholder.has-image img { display: block; }
+        .photo-placeholder.has-image span { display: none; }
 
-        .photo-placeholder.has-image span {
-            display: none;
-        }
-
-        /* REPEATED ENTRIES */
-
+        /* REPEATABLE ENTRIES */
         .entry {
-            margin-bottom: 15px;
-            padding: 20px;
+            margin-bottom: 14px;
+            padding: 18px;
             border: 1px solid var(--border);
-            border-radius: 15px;
-            background: #FCFAFF;
+            border-radius: 13px;
+            background: #fbfcfe;
         }
 
         .entry-header {
@@ -464,27 +373,26 @@
             align-items: center;
             justify-content: space-between;
             gap: 12px;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
         .entry-header h3 {
             margin: 0;
-            color: var(--purple-dark);
+            color: #244e7b;
             font-size: 14px;
         }
 
         .empty-message {
             margin: 0 0 14px;
             padding: 15px;
-            border: 1px dashed var(--lavender-soft);
-            border-radius: 12px;
-            background: #FCFAFF;
+            border: 1px dashed #cfd8e3;
+            border-radius: 10px;
+            background: #fbfcfe;
             color: var(--muted);
             font-size: 12px;
         }
 
         /* BUTTONS */
-
         .btn {
             display: inline-flex;
             align-items: center;
@@ -492,10 +400,10 @@
             gap: 7px;
             min-height: 42px;
             padding: 10px 16px;
-            border: 1px solid var(--lavender-deep);
-            border-radius: 10px;
-            background: var(--lavender-deep);
-            color: white;
+            border: 1px solid var(--primary);
+            border-radius: 9px;
+            background: var(--primary);
+            color: #fff;
             font-size: 12px;
             font-weight: 800;
             text-align: center;
@@ -504,41 +412,38 @@
         }
 
         .btn:hover {
-            background: var(--purple-dark);
-            border-color: var(--purple-dark);
-            transform: translateY(-1px);
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
         }
 
         .btn-secondary {
-            background: white;
-            color: var(--purple-dark);
-            border-color: var(--lavender-soft);
+            background: #fff;
+            color: #244e7b;
+            border-color: #cfd8e3;
         }
 
         .btn-secondary:hover {
-            background: var(--lavender-light);
-            color: var(--purple-dark);
-            border-color: var(--lavender-purple);
+            background: #eaf3ff;
+            color: var(--primary-dark);
+            border-color: var(--primary);
         }
 
         .btn-remove {
             min-height: 31px;
             padding: 6px 10px;
-            border-color: #F5D0D8;
-            background: #FFF2F4;
+            border-color: #f1b9c0;
+            background: #fff2f3;
             color: var(--danger);
             font-size: 11px;
         }
 
         .btn-remove:hover {
-            background: #FFE5EA;
-            border-color: #F0B8C5;
-            color: #B92D49;
+            border-color: var(--danger);
+            background: #ffe4e7;
+            color: #a32030;
         }
 
-        .add-button {
-            margin-top: 2px;
-        }
+        .add-button { margin-top: 2px; }
 
         .skill-row {
             display: grid;
@@ -549,7 +454,6 @@
         }
 
         /* TEMPLATE SELECTION */
-
         .template-intro {
             margin: -5px 0 18px;
             color: var(--muted);
@@ -560,6 +464,9 @@
             display: grid;
             grid-template-columns: repeat(3,minmax(0,1fr));
             gap: 15px;
+            padding: 3px;
+            border: 1px solid transparent;
+            border-radius: 14px;
         }
 
         .template-option {
@@ -567,19 +474,19 @@
             min-width: 0;
             overflow: hidden;
             border: 2px solid var(--border);
-            border-radius: 15px;
-            background: white;
-            transition: border-color .2s, box-shadow .2s, transform .2s;
+            border-radius: 13px;
+            background: #fff;
+            transition: .2s;
         }
 
         .template-option:hover {
             transform: translateY(-2px);
-            box-shadow: 0 9px 24px rgba(112,69,181,.10);
+            box-shadow: 0 8px 22px rgba(31,65,105,.09);
         }
 
         .template-option:has(input:checked) {
-            border-color: var(--lavender-deep);
-            box-shadow: 0 0 0 3px rgba(172,136,232,.15);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(25,118,210,.10);
         }
 
         .template-option > label {
@@ -597,7 +504,7 @@
             right: 12px;
             width: 19px;
             height: 19px;
-            accent-color: var(--lavender-deep);
+            accent-color: var(--primary);
             cursor: pointer;
         }
 
@@ -609,35 +516,24 @@
             padding: 15px;
         }
 
-        .simple-preview {
-            background: linear-gradient(135deg,#EEEAFD,#D8CAF6);
-        }
-
-        .modern-preview {
-            background: linear-gradient(135deg,#C2A9EF,#AC88E8);
-        }
-
-        .creative-preview {
-            background: linear-gradient(135deg,#AC88E8,#7045B5);
-        }
+        .simple-preview { background: linear-gradient(135deg,#eaf3ff,#d6e6fa); }
+        .modern-preview { background: linear-gradient(135deg,#1769c2,#0d47a1); }
+        .creative-preview { background: linear-gradient(135deg,#092c2d,#155e59); }
 
         .mock-page {
             width: 100%;
             min-height: 125px;
             padding: 12px;
-            border: 1px solid var(--border);
+            border: 1px solid #e2e8f0;
             border-radius: 8px;
-            background: white;
-            box-shadow: 0 6px 15px rgba(48,35,68,.12);
+            background: #fff;
+            box-shadow: 0 6px 15px rgba(0,0,0,.10);
         }
 
-        .modern-preview .mock-page {
-            border-top: 4px solid var(--lavender-deep);
-        }
-
+        .modern-preview .mock-page { border-top: 4px solid #60a5fa; }
         .creative-preview .mock-page {
-            border-color: #7045B5;
-            background: #35274B;
+            border-color: #155e59;
+            background: #123c3c;
         }
 
         .mock-profile {
@@ -652,79 +548,60 @@
             width: 27px;
             height: 27px;
             border-radius: 50%;
-            background: linear-gradient(135deg,#D8CAF6,#AC88E8);
+            background: linear-gradient(135deg,#dbeafe,#60a5fa);
         }
 
         .mock-heading {
-            color: #49356B;
+            color: #244e7b;
             font-size: 8px;
             font-weight: 800;
         }
 
-        .mock-subheading {
-            color: #887A9C;
-            font-size: 7px;
-        }
-
-        .creative-preview .mock-heading {
-            color: #E6D9FF;
-        }
-
-        .creative-preview .mock-subheading {
-            color: #C7B6E5;
-        }
+        .mock-subheading { color: #64748b; font-size: 7px; }
+        .creative-preview .mock-heading { color: #e6fffb; }
+        .creative-preview .mock-subheading { color: #b7dcd7; }
 
         .mock-line {
             width: 100%;
             height: 4px;
             margin: 7px 0;
             border-radius: 8px;
-            background: #E7E0F3;
+            background: #e2e8f0;
         }
 
         .mock-line.short {
             width: 48%;
             height: 5px;
-            background: var(--lavender-deep);
+            background: #1976d2;
         }
 
-        .mock-line.medium {
-            width: 72%;
-        }
-
-        .creative-preview .mock-line {
-            background: #65527E;
-        }
-
-        .creative-preview .mock-line.short {
-            background: #AC88E8;
-        }
+        .mock-line.medium { width: 72%; }
+        .creative-preview .mock-line { background: #356866; }
+        .creative-preview .mock-line.short { background: #53b8a8; }
 
         .mock-section-title {
             margin: 9px 0 5px;
-            color: #74559E;
+            color: #1976d2;
             font-size: 7px;
             font-weight: 800;
         }
 
-        .creative-preview .mock-section-title {
-            color: #D8CAF6;
-        }
+        .creative-preview .mock-section-title { color: #9cebdc; }
 
         .mock-tag {
             display: inline-block;
             margin: 4px 3px 0 0;
             padding: 3px 6px;
             border-radius: 4px;
-            background: var(--lavender-light);
-            color: var(--purple-dark);
+            background: #dbeafe;
+            color: #125eaa;
             font-size: 7px;
             font-weight: 700;
         }
 
         .creative-preview .mock-tag {
-            background: #57416F;
-            color: #EEEAFD;
+            background: #245451;
+            color: #e6fffb;
         }
 
         .template-info {
@@ -740,17 +617,14 @@
             margin-bottom: 8px;
             padding: 5px 8px;
             border-radius: 20px;
-            background: var(--lavender-light);
-            color: var(--purple-dark);
+            background: #eaf3ff;
+            color: #125eaa;
             font-size: 9px;
             font-weight: 800;
             text-transform: uppercase;
         }
 
-        .template-info h3 {
-            margin: 0 0 7px;
-            font-size: 15px;
-        }
+        .template-info h3 { margin: 0 0 7px; font-size: 15px; }
 
         .template-info p {
             margin: 0;
@@ -762,14 +636,12 @@
         .selected-hint {
             display: none;
             margin-top: 12px;
-            color: var(--purple-dark);
+            color: var(--primary-dark);
             font-size: 10px;
             font-weight: 800;
         }
 
-        .template-option:has(input:checked) .selected-hint {
-            display: block;
-        }
+        .template-option:has(input:checked) .selected-hint { display: block; }
 
         .form-actions {
             display: flex;
@@ -785,141 +657,48 @@
         .footer {
             padding: 22px 16px;
             border-top: 1px solid var(--border);
-            background: white;
+            background: #fff;
             color: var(--muted);
             font-size: 12px;
             text-align: center;
         }
 
-        .footer p {
-            margin: 0;
-        }
+        .footer p { margin: 0; }
 
         @media (max-width: 800px) {
-            .nav-inner {
-                flex-wrap: wrap;
-                padding: 12px 0;
-                gap: 12px;
-            }
-
-            .nav-links {
-                order: 3;
-                width: 100%;
-                gap: 25px;
-            }
-
-            .nav-links a {
-                padding: 8px 0;
-            }
-
-            .nav-links a.active::after {
-                bottom: 1px;
-            }
-
-            .templates {
-                grid-template-columns: 1fr;
-            }
-
-            .template-preview {
-                min-height: 180px;
-            }
-
-            .form-card {
-                padding: 23px;
-            }
+            .nav-inner { flex-wrap: wrap; padding: 12px 0; gap: 12px; }
+            .nav-links { gap: 8px; }
+            .templates { grid-template-columns: 1fr; }
+            .template-preview { min-height: 180px; }
+            .form-card { padding: 23px; }
         }
 
         @media (max-width: 560px) {
             .nav-inner {
                 width: calc(100% - 24px);
-            }
-
-            .brand {
-                font-size: 17px;
-            }
-
-            .nav-actions {
-                gap: 5px;
-            }
-
-            .nav-button {
-                min-height: 36px;
-                padding: 7px 9px;
-                font-size: 10px;
-            }
-
-            .nav-links {
                 justify-content: flex-start;
-                gap: 22px;
             }
 
-            .container {
-                width: calc(100% - 24px);
-                padding-top: 25px;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-
-            .full {
-                grid-column: auto;
-            }
-
-            .form-card {
-                padding: 17px;
-                border-radius: 16px;
-            }
-
-            .section {
-                padding: 22px 0;
-            }
-
-            .section-heading h2 {
-                font-size: 17px;
-            }
-
-            .photo-box {
-                grid-template-columns: 1fr;
-            }
-
-            .photo-placeholder {
-                width: 95px;
-                height: 95px;
-            }
-
-            .progress-card {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            .entry {
-                padding: 14px;
-            }
-
-            .form-actions {
-                align-items: stretch;
-                flex-direction: column;
-            }
-
-            .form-actions .btn {
-                width: 100%;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                scroll-behavior: auto !important;
-                transition-duration: .01ms !important;
-            }
+            .brand { font-size: 17px; }
+            .nav-links { width: 100%; }
+            .nav-button { min-height: 38px; padding: 8px 10px; font-size: 11px; }
+            .container { width: calc(100% - 24px); padding-top: 25px; }
+            .grid { grid-template-columns: 1fr; gap: 0; }
+            .full { grid-column: auto; }
+            .form-card { padding: 17px; border-radius: 15px; }
+            .section { padding: 22px 0; }
+            .photo-box { grid-template-columns: 1fr; }
+            .progress-card { align-items: flex-start; flex-direction: column; }
+            .entry { padding: 14px; }
+            .form-actions { align-items: stretch; flex-direction: column; }
+            .form-actions .btn { width: 100%; }
         }
     </style>
 </head>
 
 <body>
 
-{{-- NAVIGATION: NO LOG OUT BUTTON --}}
+{{-- NAVIGATION: BACK TO HOME + MANAGE PORTFOLIOS, NO LOG OUT --}}
 <header class="navbar">
     <div class="nav-inner">
 
@@ -929,16 +708,16 @@
         </a>
 
         <nav class="nav-links" aria-label="Main navigation">
-            <a href="{{ url('/') }}">Home</a>
-            <a href="{{ route('portfolios.index') }}">Manage Portfolios</a>
-        </nav>
-
-        <div class="nav-actions">
-            <a href="{{ route('portfolios.create') }}"
-               class="nav-button primary">
-                + New Portfolio
+            <a href="{{ url('/') }}" class="nav-button">
+                <span aria-hidden="true">&larr;</span>
+                Back to Home
             </a>
-        </div>
+
+            <a href="{{ route('portfolios.index') }}" class="nav-button">
+                <span aria-hidden="true">&#9776;</span>
+                Manage Portfolios
+            </a>
+        </nav>
 
     </div>
 </header>
@@ -946,10 +725,7 @@
 <main class="container">
 
     <div class="page-heading">
-        <span class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            YOUR FUTURE, YOUR PORTFOLIO
-        </span>
+        <span class="eyebrow">YOUR FUTURE, YOUR PORTFOLIO</span>
 
         <h1>
             Create Your Portfolio
@@ -967,7 +743,6 @@
             <strong>Build your professional profile</strong>
             <span>Complete the sections below and select your preferred design.</span>
         </div>
-
         <span class="progress-label">CREATE PORTFOLIO</span>
     </div>
 
@@ -984,12 +759,10 @@
             </div>
         @endif
 
-        <form
-            method="POST"
-            action="{{ route('portfolios.store') }}"
-            enctype="multipart/form-data"
-            id="portfolioForm"
-        >
+        <form method="POST"
+              action="{{ route('portfolios.store') }}"
+              enctype="multipart/form-data"
+              id="portfolioForm">
             @csrf
 
             {{-- 01 PROFILE PHOTO --}}
@@ -1010,15 +783,12 @@
 
                     <div class="field">
                         <label for="profile_picture">Upload Profile Photo</label>
-                        <input
-                            type="file"
-                            id="profile_picture"
-                            name="profile_picture"
-                            accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
-                        >
-                        <p class="help-text">
-                            JPG, JPEG, PNG, or WEBP. Maximum size: 2 MB.
-                        </p>
+                        <input type="file"
+                               id="profile_picture"
+                               name="profile_picture"
+                               accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+
+                        <p class="help-text">JPG, JPEG, PNG, or WEBP. Maximum size: 2 MB.</p>
 
                         @error('profile_picture')
                             <div class="error">{{ $message }}</div>
@@ -1039,96 +809,50 @@
 
                 <div class="grid">
                     <div class="field">
-                        <label for="full_name">
-                            Full Name <span class="required">*</span>
-                        </label>
-                        <input
-                            type="text"
-                            id="full_name"
-                            name="full_name"
-                            value="{{ old('full_name') }}"
-                            maxlength="255"
-                            placeholder="Enter your full name"
-                            required
-                        >
-                        @error('full_name')
-                            <div class="error">{{ $message }}</div>
-                        @enderror
+                        <label for="full_name">Full Name <span class="required">*</span></label>
+                        <input type="text" id="full_name" name="full_name"
+                               value="{{ old('full_name') }}"
+                               maxlength="255" placeholder="Enter your full name" required>
+                        @error('full_name') <div class="error">{{ $message }}</div> @enderror
                     </div>
 
                     <div class="field">
                         <label for="professional_title">Professional Title</label>
-                        <input
-                            type="text"
-                            id="professional_title"
-                            name="professional_title"
-                            value="{{ old('professional_title') }}"
-                            maxlength="255"
-                            placeholder="e.g. Web Developer"
-                        >
-                        @error('professional_title')
-                            <div class="error">{{ $message }}</div>
-                        @enderror
+                        <input type="text" id="professional_title" name="professional_title"
+                               value="{{ old('professional_title') }}"
+                               maxlength="255" placeholder="e.g. Web Developer">
+                        @error('professional_title') <div class="error">{{ $message }}</div> @enderror
                     </div>
 
                     <div class="field">
-                        <label for="email">
-                            Email <span class="required">*</span>
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value="{{ old('email') }}"
-                            maxlength="255"
-                            placeholder="you@example.com"
-                            required
-                        >
-                        @error('email')
-                            <div class="error">{{ $message }}</div>
-                        @enderror
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email"
+                               value="{{ old('email') }}"
+                               maxlength="255" placeholder="you@example.com" required>
+                        @error('email') <div class="error">{{ $message }}</div> @enderror
                     </div>
 
                     <div class="field">
                         <label for="contact_number">Phone</label>
-                        <input
-                            type="tel"
-                            id="contact_number"
-                            name="contact_number"
-                            value="{{ old('contact_number') }}"
-                            maxlength="50"
-                            placeholder="Your contact number"
-                        >
-                        @error('contact_number')
-                            <div class="error">{{ $message }}</div>
-                        @enderror
+                        <input type="tel" id="contact_number" name="contact_number"
+                               value="{{ old('contact_number') }}"
+                               maxlength="50" placeholder="Your contact number">
+                        @error('contact_number') <div class="error">{{ $message }}</div> @enderror
                     </div>
 
                     <div class="field full">
                         <label for="address">Address</label>
-                        <input
-                            type="text"
-                            id="address"
-                            name="address"
-                            value="{{ old('address') }}"
-                            maxlength="255"
-                            placeholder="City, Province"
-                        >
-                        @error('address')
-                            <div class="error">{{ $message }}</div>
-                        @enderror
+                        <input type="text" id="address" name="address"
+                               value="{{ old('address') }}"
+                               maxlength="255" placeholder="City, Province">
+                        @error('address') <div class="error">{{ $message }}</div> @enderror
                     </div>
 
                     <div class="field full">
                         <label for="about_me">About Me</label>
-                        <textarea
-                            id="about_me"
-                            name="about_me"
-                            placeholder="Introduce yourself, your interests, and your career goals..."
-                        >{{ old('about_me') }}</textarea>
-                        @error('about_me')
-                            <div class="error">{{ $message }}</div>
-                        @enderror
+                        <textarea id="about_me" name="about_me"
+                                  placeholder="Introduce yourself, your interests, and your career goals...">{{ old('about_me') }}</textarea>
+                        @error('about_me') <div class="error">{{ $message }}</div> @enderror
                     </div>
                 </div>
             </section>
@@ -1144,61 +868,50 @@
                 </div>
 
                 <div id="educationContainer">
-                    @php
-                        $educationItems = old('educations', []);
-                    @endphp
-
-                    @foreach ($educationItems as $i => $edu)
+                    @foreach (old('educations', []) as $i => $edu)
                         <div class="entry">
                             <div class="entry-header">
                                 <h3>Education</h3>
-                                <button type="button" class="btn btn-remove"
-                                        onclick="removeEntry(this)">
-                                    Remove
-                                </button>
+                                <button type="button" class="btn btn-remove" onclick="removeEntry(this)">Remove</button>
                             </div>
 
                             <div class="grid">
                                 <div class="field">
                                     <label>School / University</label>
-                                    <input type="text"
-                                           name="educations[{{ $i }}][school]"
-                                           value="{{ $edu['school'] ?? '' }}"
-                                           maxlength="255"
+                                    <input type="text" name="educations[{{ $i }}][school]"
+                                           value="{{ $edu['school'] ?? '' }}" maxlength="255"
                                            placeholder="School name">
+                                    @error("educations.$i.school") <div class="error">{{ $message }}</div> @enderror
                                 </div>
 
                                 <div class="field">
                                     <label>Degree / Course</label>
-                                    <input type="text"
-                                           name="educations[{{ $i }}][degree]"
-                                           value="{{ $edu['degree'] ?? '' }}"
-                                           maxlength="255"
+                                    <input type="text" name="educations[{{ $i }}][degree]"
+                                           value="{{ $edu['degree'] ?? '' }}" maxlength="255"
                                            placeholder="e.g. BS Information Technology">
+                                    @error("educations.$i.degree") <div class="error">{{ $message }}</div> @enderror
                                 </div>
 
                                 <div class="field">
                                     <label>Start Date</label>
-                                    <input type="date"
-                                           name="educations[{{ $i }}][start_date]"
+                                    <input type="date" name="educations[{{ $i }}][start_date]"
                                            value="{{ $edu['start_date'] ?? '' }}">
+                                    @error("educations.$i.start_date") <div class="error">{{ $message }}</div> @enderror
                                 </div>
 
                                 <div class="field">
                                     <label>End Date</label>
-                                    <input type="date"
-                                           name="educations[{{ $i }}][end_date]"
+                                    <input type="date" name="educations[{{ $i }}][end_date]"
                                            value="{{ $edu['end_date'] ?? '' }}">
                                     <p class="help-text">Leave blank if still studying.</p>
+                                    @error("educations.$i.end_date") <div class="error">{{ $message }}</div> @enderror
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 </div>
 
-                <button type="button" class="btn add-button" onclick="addEducation()">
-                    + Add Education
-                </button>
+                <button type="button" class="btn add-button" onclick="addEducation()">+ Add Education</button>
             </section>
 
             {{-- 04 SKILLS --}}
@@ -1212,34 +925,21 @@
                 </div>
 
                 <div id="skillContainer">
-                    @php
-                        $skillItems = old('skills', []);
-                    @endphp
-
-                    @foreach ($skillItems as $i => $skill)
+                    @foreach (old('skills', []) as $i => $skill)
                         <div class="skill-row">
                             <div class="field">
-                                <input
-                                    type="text"
-                                    name="skills[{{ $i }}][skill_name]"
-                                    value="{{ $skill['skill_name'] ?? '' }}"
-                                    maxlength="255"
-                                    placeholder="e.g. HTML, CSS, Laravel"
-                                    aria-label="Skill name"
-                                >
+                                <input type="text" name="skills[{{ $i }}][skill_name]"
+                                       value="{{ $skill['skill_name'] ?? '' }}"
+                                       maxlength="255" placeholder="e.g. HTML, CSS, Laravel"
+                                       aria-label="Skill name">
+                                @error("skills.$i.skill_name") <div class="error">{{ $message }}</div> @enderror
                             </div>
-
-                            <button type="button" class="btn btn-remove"
-                                    onclick="removeEntry(this)">
-                                Remove
-                            </button>
+                            <button type="button" class="btn btn-remove" onclick="removeEntry(this)">Remove</button>
                         </div>
                     @endforeach
                 </div>
 
-                <button type="button" class="btn add-button" onclick="addSkill()">
-                    + Add Skill
-                </button>
+                <button type="button" class="btn add-button" onclick="addSkill()">+ Add Skill</button>
             </section>
 
             {{-- 05 WORK EXPERIENCE --}}
@@ -1248,69 +948,58 @@
                     <div class="section-number">05</div>
                     <div>
                         <h2>Work Experience</h2>
-                        <p>Add your previous or current job, internship, or relevant experience.</p>
+                        <p>Add a previous or current job, internship, or relevant experience.</p>
                     </div>
                 </div>
 
                 <div id="experienceContainer">
-                    @php
-                        $experienceItems = old('experiences', []);
-                    @endphp
-
-                    @foreach ($experienceItems as $i => $exp)
+                    @foreach (old('experiences', []) as $i => $exp)
                         <div class="entry">
                             <div class="entry-header">
                                 <h3>Work Experience</h3>
-                                <button type="button" class="btn btn-remove"
-                                        onclick="removeEntry(this)">
-                                    Remove
-                                </button>
+                                <button type="button" class="btn btn-remove" onclick="removeEntry(this)">Remove</button>
                             </div>
 
                             <div class="grid">
                                 <div class="field">
                                     <label>Job Title</label>
-                                    <input type="text"
-                                           name="experiences[{{ $i }}][job_title]"
-                                           value="{{ $exp['job_title'] ?? '' }}"
-                                           maxlength="255"
+                                    <input type="text" name="experiences[{{ $i }}][job_title]"
+                                           value="{{ $exp['job_title'] ?? '' }}" maxlength="255"
                                            placeholder="e.g. Web Developer Intern">
+                                    @error("experiences.$i.job_title") <div class="error">{{ $message }}</div> @enderror
                                 </div>
 
                                 <div class="field">
                                     <label>Company / Organization</label>
-                                    <input type="text"
-                                           name="experiences[{{ $i }}][company]"
-                                           value="{{ $exp['company'] ?? '' }}"
-                                           maxlength="255"
+                                    <input type="text" name="experiences[{{ $i }}][company]"
+                                           value="{{ $exp['company'] ?? '' }}" maxlength="255"
                                            placeholder="Company name">
+                                    @error("experiences.$i.company") <div class="error">{{ $message }}</div> @enderror
                                 </div>
 
                                 <div class="field">
                                     <label>Start Date</label>
-                                    <input type="date"
-                                           name="experiences[{{ $i }}][start_date]"
+                                    <input type="date" name="experiences[{{ $i }}][start_date]"
                                            value="{{ $exp['start_date'] ?? '' }}">
+                                    @error("experiences.$i.start_date") <div class="error">{{ $message }}</div> @enderror
                                 </div>
 
                                 <div class="field">
                                     <label>End Date</label>
-                                    <input type="date"
-                                           name="experiences[{{ $i }}][end_date]"
+                                    <input type="date" name="experiences[{{ $i }}][end_date]"
                                            value="{{ $exp['end_date'] ?? '' }}">
                                     <p class="help-text">Leave blank if currently working there.</p>
+                                    @error("experiences.$i.end_date") <div class="error">{{ $message }}</div> @enderror
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 </div>
 
-                <button type="button" class="btn add-button" onclick="addExperience()">
-                    + Add Work Experience
-                </button>
+                <button type="button" class="btn add-button" onclick="addExperience()">+ Add Work Experience</button>
             </section>
 
-            {{-- 06 PROJECTS: EMPTY UNTIL USER ADDS ONE --}}
+            {{-- 06 PROJECTS: EMPTY BY DEFAULT --}}
             <section class="section">
                 <div class="section-heading">
                     <div class="section-number">06</div>
@@ -1321,72 +1010,53 @@
                 </div>
 
                 <div id="projectContainer">
-                    @php
-                        $projectItems = old('projects', []);
-                    @endphp
-
-                    @foreach ($projectItems as $i => $project)
+                    @foreach (old('projects', []) as $i => $project)
                         <div class="entry">
                             <div class="entry-header">
                                 <h3>Project</h3>
-                                <button type="button" class="btn btn-remove"
-                                        onclick="removeEntry(this)">
-                                    Remove Project
-                                </button>
+                                <button type="button" class="btn btn-remove" onclick="removeEntry(this)">Remove Project</button>
                             </div>
 
                             <div class="field">
                                 <label>Project Title</label>
-                                <input
-                                    type="text"
-                                    name="projects[{{ $i }}][project_title]"
-                                    value="{{ $project['project_title'] ?? '' }}"
-                                    maxlength="255"
-                                    placeholder="e.g. Student Portfolio Website"
-                                >
+                                <input type="text" name="projects[{{ $i }}][project_title]"
+                                       value="{{ $project['project_title'] ?? '' }}"
+                                       maxlength="255" placeholder="e.g. Student Portfolio Website">
+                                @error("projects.$i.project_title") <div class="error">{{ $message }}</div> @enderror
                             </div>
 
                             <div class="field">
                                 <label>Description</label>
-                                <textarea
-                                    name="projects[{{ $i }}][description]"
-                                    placeholder="Describe your project, its purpose, and what you accomplished..."
-                                >{{ $project['description'] ?? '' }}</textarea>
+                                <textarea name="projects[{{ $i }}][description]"
+                                          placeholder="Describe your project and what you accomplished...">{{ $project['description'] ?? '' }}</textarea>
+                                @error("projects.$i.description") <div class="error">{{ $message }}</div> @enderror
                             </div>
 
                             <div class="field">
                                 <label>Project URL</label>
-                                <input
-                                    type="url"
-                                    name="projects[{{ $i }}][project_url]"
-                                    value="{{ $project['project_url'] ?? '' }}"
-                                    maxlength="2048"
-                                    placeholder="https://example.com"
-                                >
+                                <input type="url" name="projects[{{ $i }}][project_url]"
+                                       value="{{ $project['project_url'] ?? '' }}"
+                                       maxlength="2048" placeholder="https://example.com">
+                                @error("projects.$i.project_url") <div class="error">{{ $message }}</div> @enderror
                             </div>
 
                             <div class="field">
                                 <label>Technologies Used</label>
-                                <input
-                                    type="text"
-                                    name="projects[{{ $i }}][technologies_used]"
-                                    value="{{ $project['technologies_used'] ?? '' }}"
-                                    maxlength="1000"
-                                    placeholder="HTML, CSS, Laravel"
-                                >
+                                <input type="text" name="projects[{{ $i }}][technologies_used]"
+                                       value="{{ $project['technologies_used'] ?? '' }}"
+                                       maxlength="1000" placeholder="HTML, CSS, Laravel">
+                                @error("projects.$i.technologies_used") <div class="error">{{ $message }}</div> @enderror
                             </div>
                         </div>
                     @endforeach
                 </div>
 
                 <p class="empty-message" id="projectEmptyMessage"
-                   @if (count($projectItems) > 0) hidden @endif>
+                   @if (count(old('projects', [])) > 0) hidden @endif>
                     No projects added yet. Click "+ Add Project" when you're ready.
                 </p>
 
-                <button type="button" class="btn add-button" onclick="addProject()">
-                    + Add Project
-                </button>
+                <button type="button" class="btn add-button" onclick="addProject()">+ Add Project</button>
             </section>
 
             {{-- 07 SOCIAL LINKS --}}
@@ -1395,51 +1065,40 @@
                     <div class="section-number">07</div>
                     <div>
                         <h2>Social Links</h2>
-                        <p>Add a platform name and its complete profile URL.</p>
+                        <p>Add a platform name and its profile URL.</p>
                     </div>
                 </div>
 
                 <div id="socialContainer">
-                    @php
-                        $socialItems = old('socials', []);
-                    @endphp
-
-                    @foreach ($socialItems as $i => $social)
+                    @foreach (old('socials', []) as $i => $social)
                         <div class="entry">
                             <div class="entry-header">
                                 <h3>Social Link</h3>
-                                <button type="button" class="btn btn-remove"
-                                        onclick="removeEntry(this)">
-                                    Remove
-                                </button>
+                                <button type="button" class="btn btn-remove" onclick="removeEntry(this)">Remove</button>
                             </div>
 
                             <div class="grid">
                                 <div class="field">
                                     <label>Platform Name</label>
-                                    <input type="text"
-                                           name="socials[{{ $i }}][platform_name]"
+                                    <input type="text" name="socials[{{ $i }}][platform_name]"
                                            value="{{ $social['platform_name'] ?? '' }}"
-                                           maxlength="255"
-                                           placeholder="e.g. LinkedIn, GitHub">
+                                           maxlength="255" placeholder="e.g. LinkedIn, GitHub">
+                                    @error("socials.$i.platform_name") <div class="error">{{ $message }}</div> @enderror
                                 </div>
 
                                 <div class="field">
                                     <label>Profile URL</label>
-                                    <input type="url"
-                                           name="socials[{{ $i }}][url]"
+                                    <input type="url" name="socials[{{ $i }}][url]"
                                            value="{{ $social['url'] ?? '' }}"
-                                           maxlength="2048"
-                                           placeholder="https://example.com/your-profile">
+                                           maxlength="2048" placeholder="https://example.com/your-profile">
+                                    @error("socials.$i.url") <div class="error">{{ $message }}</div> @enderror
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 </div>
 
-                <button type="button" class="btn add-button" onclick="addSocial()">
-                    + Add Social Link
-                </button>
+                <button type="button" class="btn add-button" onclick="addSocial()">+ Add Social Link</button>
             </section>
 
             {{-- 08 TEMPLATE SELECTION --}}
@@ -1447,43 +1106,25 @@
                 <div class="section-heading">
                     <div class="section-number">08</div>
                     <div>
-                        <h2>
-                            Choose Your Portfolio Design
-                            <span class="required">*</span>
-                        </h2>
-                        <p>Select a design for your portfolio.</p>
+                        <h2>Choose Your Portfolio Template</h2>
+                        <p>Select the design you want to use for your portfolio.</p>
                     </div>
                 </div>
 
-                <p class="template-intro">
-                    Choose Simple for a clean look, Modern for a professional style,
-                    or Creative for a bold presentation.
-                </p>
+                <p class="template-intro">Choose one template before creating your portfolio.</p>
 
                 @php
-                    $selectedTemplate = old(
-                        'template',
-                        request()->query('template', 'simple')
-                    );
-
-                    if (!in_array($selectedTemplate, ['simple', 'modern', 'creative'], true)) {
-                        $selectedTemplate = 'simple';
-                    }
+                    $selectedTemplate = old('template', 'simple');
                 @endphp
 
-                <div class="templates">
+                <div class="templates" id="templateOptions">
 
                     {{-- SIMPLE --}}
                     <article class="template-option">
-                        <input
-                            class="template-select"
-                            type="radio"
-                            id="template_simple"
-                            name="template"
-                            value="simple"
-                            {{ $selectedTemplate === 'simple' ? 'checked' : '' }}
-                            required
-                        >
+                        <input class="template-select"
+                               type="radio" id="template_simple"
+                               name="template" value="simple"
+                               {{ $selectedTemplate === 'simple' ? 'checked' : '' }} required>
 
                         <label for="template_simple">
                             <div class="template-preview simple-preview">
@@ -1503,14 +1144,10 @@
                                     <span class="mock-tag">Projects</span>
                                 </div>
                             </div>
-
                             <div class="template-info">
                                 <span class="template-label">Clean &amp; Minimal</span>
                                 <h3>Simple Template</h3>
-                                <p>
-                                    A clean, minimal layout that highlights your biography,
-                                    education, skills, and experience.
-                                </p>
+                                <p>A clean, minimal layout that highlights your biography, education, skills, and experience.</p>
                                 <span class="selected-hint">✓ Selected design</span>
                             </div>
                         </label>
@@ -1518,14 +1155,10 @@
 
                     {{-- MODERN --}}
                     <article class="template-option">
-                        <input
-                            class="template-select"
-                            type="radio"
-                            id="template_modern"
-                            name="template"
-                            value="modern"
-                            {{ $selectedTemplate === 'modern' ? 'checked' : '' }}
-                        >
+                        <input class="template-select"
+                               type="radio" id="template_modern"
+                               name="template" value="modern"
+                               {{ $selectedTemplate === 'modern' ? 'checked' : '' }}>
 
                         <label for="template_modern">
                             <div class="template-preview modern-preview">
@@ -1547,14 +1180,10 @@
                                     <span class="mock-tag">Projects</span>
                                 </div>
                             </div>
-
                             <div class="template-info">
                                 <span class="template-label">Professional</span>
                                 <h3>Modern Template</h3>
-                                <p>
-                                    A polished design for students, job seekers, and
-                                    professionals showcasing their achievements.
-                                </p>
+                                <p>A polished design for students, job seekers, and professionals showcasing their achievements.</p>
                                 <span class="selected-hint">✓ Selected design</span>
                             </div>
                         </label>
@@ -1562,14 +1191,10 @@
 
                     {{-- CREATIVE --}}
                     <article class="template-option">
-                        <input
-                            class="template-select"
-                            type="radio"
-                            id="template_creative"
-                            name="template"
-                            value="creative"
-                            {{ $selectedTemplate === 'creative' ? 'checked' : '' }}
-                        >
+                        <input class="template-select"
+                               type="radio" id="template_creative"
+                               name="template" value="creative"
+                               {{ $selectedTemplate === 'creative' ? 'checked' : '' }}>
 
                         <label for="template_creative">
                             <div class="template-preview creative-preview">
@@ -1591,14 +1216,10 @@
                                     <span class="mock-tag">Ideas</span>
                                 </div>
                             </div>
-
                             <div class="template-info">
                                 <span class="template-label">Bold &amp; Creative</span>
                                 <h3>Creative Template</h3>
-                                <p>
-                                    A distinctive style for designers, developers, artists,
-                                    and expressive portfolios.
-                                </p>
+                                <p>A distinctive style for designers, developers, artists, and expressive portfolios.</p>
                                 <span class="selected-hint">✓ Selected design</span>
                             </div>
                         </label>
@@ -1613,13 +1234,9 @@
 
             {{-- FORM ACTIONS --}}
             <div class="form-actions">
-                <a href="{{ route('portfolios.index') }}" class="btn btn-secondary">
-                    Manage Portfolios
-                </a>
-
-                <button type="submit" class="btn" id="submitButton">
-                    Create Portfolio →
-                </button>
+                <a href="{{ url('/') }}" class="btn btn-secondary">← Back to Home</a>
+                <a href="{{ route('portfolios.index') }}" class="btn btn-secondary">Manage Portfolios</a>
+                <button type="submit" class="btn" id="submitButton">Create Portfolio →</button>
             </div>
 
         </form>
@@ -1627,10 +1244,7 @@
 </main>
 
 <footer class="footer">
-    <p>
-        &copy; {{ date('Y') }} B.O.R.N.FOLIO.
-        Build your portfolio, share your story.
-    </p>
+    <p>&copy; {{ date('Y') }} B.O.R.N.FOLIO. Build your portfolio, share your story.</p>
 </footer>
 
 <script>
@@ -1642,52 +1256,39 @@
 
     function removeEntry(button) {
         const entry = button.closest('.entry, .skill-row');
-
-        if (entry) {
-            entry.remove();
-        }
-
+        if (entry) entry.remove();
         updateProjectEmptyMessage();
     }
 
     function updateProjectEmptyMessage() {
         const container = document.getElementById('projectContainer');
         const message = document.getElementById('projectEmptyMessage');
-
-        message.hidden = container.querySelectorAll('.entry').length > 0;
+        if (container && message) {
+            message.hidden = container.querySelectorAll('.entry').length > 0;
+        }
     }
 
     function addEducation() {
         const i = educationIndex++;
-        const container = document.getElementById('educationContainer');
-
-        container.insertAdjacentHTML('beforeend', `
+        document.getElementById('educationContainer').insertAdjacentHTML('beforeend', `
             <div class="entry">
                 <div class="entry-header">
                     <h3>Education</h3>
-                    <button type="button" class="btn btn-remove"
-                            onclick="removeEntry(this)">Remove</button>
+                    <button type="button" class="btn btn-remove" onclick="removeEntry(this)">Remove</button>
                 </div>
-
                 <div class="grid">
                     <div class="field">
                         <label>School / University</label>
-                        <input type="text" name="educations[${i}][school]"
-                               maxlength="255" placeholder="School name">
+                        <input type="text" name="educations[${i}][school]" maxlength="255" placeholder="School name">
                     </div>
-
                     <div class="field">
                         <label>Degree / Course</label>
-                        <input type="text" name="educations[${i}][degree]"
-                               maxlength="255"
-                               placeholder="e.g. BS Information Technology">
+                        <input type="text" name="educations[${i}][degree]" maxlength="255" placeholder="e.g. BS Information Technology">
                     </div>
-
                     <div class="field">
                         <label>Start Date</label>
                         <input type="date" name="educations[${i}][start_date]">
                     </div>
-
                     <div class="field">
                         <label>End Date</label>
                         <input type="date" name="educations[${i}][end_date]">
@@ -1700,53 +1301,38 @@
 
     function addSkill() {
         const i = skillIndex++;
-        const container = document.getElementById('skillContainer');
-
-        container.insertAdjacentHTML('beforeend', `
+        document.getElementById('skillContainer').insertAdjacentHTML('beforeend', `
             <div class="skill-row">
                 <div class="field">
-                    <input type="text" name="skills[${i}][skill_name]"
-                           maxlength="255"
-                           placeholder="e.g. HTML, CSS, Laravel"
-                           aria-label="Skill name">
+                    <input type="text" name="skills[${i}][skill_name]" maxlength="255"
+                           placeholder="e.g. HTML, CSS, Laravel" aria-label="Skill name">
                 </div>
-                <button type="button" class="btn btn-remove"
-                        onclick="removeEntry(this)">Remove</button>
+                <button type="button" class="btn btn-remove" onclick="removeEntry(this)">Remove</button>
             </div>
         `);
     }
 
     function addExperience() {
         const i = experienceIndex++;
-        const container = document.getElementById('experienceContainer');
-
-        container.insertAdjacentHTML('beforeend', `
+        document.getElementById('experienceContainer').insertAdjacentHTML('beforeend', `
             <div class="entry">
                 <div class="entry-header">
                     <h3>Work Experience</h3>
-                    <button type="button" class="btn btn-remove"
-                            onclick="removeEntry(this)">Remove</button>
+                    <button type="button" class="btn btn-remove" onclick="removeEntry(this)">Remove</button>
                 </div>
-
                 <div class="grid">
                     <div class="field">
                         <label>Job Title</label>
-                        <input type="text" name="experiences[${i}][job_title]"
-                               maxlength="255"
-                               placeholder="e.g. Web Developer Intern">
+                        <input type="text" name="experiences[${i}][job_title]" maxlength="255" placeholder="e.g. Web Developer Intern">
                     </div>
-
                     <div class="field">
                         <label>Company / Organization</label>
-                        <input type="text" name="experiences[${i}][company]"
-                               maxlength="255" placeholder="Company name">
+                        <input type="text" name="experiences[${i}][company]" maxlength="255" placeholder="Company name">
                     </div>
-
                     <div class="field">
                         <label>Start Date</label>
                         <input type="date" name="experiences[${i}][start_date]">
                     </div>
-
                     <div class="field">
                         <label>End Date</label>
                         <input type="date" name="experiences[${i}][end_date]">
@@ -1765,38 +1351,23 @@
             <div class="entry">
                 <div class="entry-header">
                     <h3>Project</h3>
-                    <button type="button" class="btn btn-remove"
-                            onclick="removeEntry(this)">Remove Project</button>
+                    <button type="button" class="btn btn-remove" onclick="removeEntry(this)">Remove Project</button>
                 </div>
-
                 <div class="field">
                     <label>Project Title</label>
-                    <input type="text"
-                           name="projects[${i}][project_title]"
-                           maxlength="255"
-                           placeholder="e.g. Student Portfolio Website">
+                    <input type="text" name="projects[${i}][project_title]" maxlength="255" placeholder="e.g. Student Portfolio Website">
                 </div>
-
                 <div class="field">
                     <label>Description</label>
-                    <textarea name="projects[${i}][description]"
-                              placeholder="Describe your project, its purpose, and what you accomplished..."></textarea>
+                    <textarea name="projects[${i}][description]" placeholder="Describe your project and what you accomplished..."></textarea>
                 </div>
-
                 <div class="field">
                     <label>Project URL</label>
-                    <input type="url"
-                           name="projects[${i}][project_url]"
-                           maxlength="2048"
-                           placeholder="https://example.com">
+                    <input type="url" name="projects[${i}][project_url]" maxlength="2048" placeholder="https://example.com">
                 </div>
-
                 <div class="field">
                     <label>Technologies Used</label>
-                    <input type="text"
-                           name="projects[${i}][technologies_used]"
-                           maxlength="1000"
-                           placeholder="HTML, CSS, Laravel">
+                    <input type="text" name="projects[${i}][technologies_used]" maxlength="1000" placeholder="HTML, CSS, Laravel">
                 </div>
             </div>
         `);
@@ -1804,39 +1375,25 @@
         updateProjectEmptyMessage();
 
         const entries = container.querySelectorAll('.entry');
-        entries[entries.length - 1].scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
-        });
+        entries[entries.length - 1].scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     function addSocial() {
         const i = socialIndex++;
-        const container = document.getElementById('socialContainer');
-
-        container.insertAdjacentHTML('beforeend', `
+        document.getElementById('socialContainer').insertAdjacentHTML('beforeend', `
             <div class="entry">
                 <div class="entry-header">
                     <h3>Social Link</h3>
-                    <button type="button" class="btn btn-remove"
-                            onclick="removeEntry(this)">Remove</button>
+                    <button type="button" class="btn btn-remove" onclick="removeEntry(this)">Remove</button>
                 </div>
-
                 <div class="grid">
                     <div class="field">
                         <label>Platform Name</label>
-                        <input type="text"
-                               name="socials[${i}][platform_name]"
-                               maxlength="255"
-                               placeholder="e.g. LinkedIn, GitHub">
+                        <input type="text" name="socials[${i}][platform_name]" maxlength="255" placeholder="e.g. LinkedIn, GitHub">
                     </div>
-
                     <div class="field">
                         <label>Profile URL</label>
-                        <input type="url"
-                               name="socials[${i}][url]"
-                               maxlength="2048"
-                               placeholder="https://example.com/your-profile">
+                        <input type="url" name="socials[${i}][url]" maxlength="2048" placeholder="https://example.com/your-profile">
                     </div>
                 </div>
             </div>
@@ -1857,11 +1414,7 @@
             return;
         }
 
-        const allowedTypes = [
-            'image/jpeg',
-            'image/png',
-            'image/webp'
-        ];
+        const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
 
         if (!allowedTypes.includes(file.type)) {
             alert('Please select a JPG, JPEG, PNG, or WEBP image.');
@@ -1880,37 +1433,55 @@
         }
 
         const reader = new FileReader();
-
         reader.onload = function (event) {
             photoPreview.src = event.target.result;
             photoPlaceholder.classList.add('has-image');
         };
-
         reader.readAsDataURL(file);
     });
 
-    // CLIENT-SIDE VALIDATION
+    // CLIENT-SIDE VALIDATION WITH RED BORDERS
     const portfolioForm = document.getElementById('portfolioForm');
+
+    function clearClientError(field) {
+        field.classList.remove('invalid-field');
+        field.removeAttribute('aria-invalid');
+
+        const wrapper = field.closest('.field');
+        if (wrapper) {
+            const error = wrapper.querySelector('.client-error');
+            if (error) error.remove();
+        }
+    }
+
+    function showClientError(field, message) {
+        field.classList.add('invalid-field');
+        field.setAttribute('aria-invalid', 'true');
+
+        const wrapper = field.closest('.field');
+        if (wrapper && !wrapper.querySelector('.client-error')) {
+            const error = document.createElement('div');
+            error.className = 'error client-error';
+            error.textContent = message;
+            wrapper.appendChild(error);
+        }
+    }
 
     portfolioForm.addEventListener('input', function (event) {
         const field = event.target;
-
         if (field.matches('input, textarea, select')) {
-            field.classList.remove('invalid-field');
-
-            const error = field.parentElement.querySelector('.client-error');
-
-            if (error) {
-                error.remove();
-            }
+            clearClientError(field);
         }
     });
 
     portfolioForm.addEventListener('change', function (event) {
         const field = event.target;
-
         if (field.matches('input, textarea, select')) {
-            field.classList.remove('invalid-field');
+            clearClientError(field);
+
+            if (field.name === 'template') {
+                document.getElementById('templateOptions').classList.remove('invalid-field');
+            }
         }
     });
 
@@ -1921,65 +1492,61 @@
             field.classList.remove('invalid-field');
         });
 
-        // Only required controls are marked as missing.
+        portfolioForm.querySelectorAll('.client-error').forEach(error => error.remove());
+
         const requiredFields = portfolioForm.querySelectorAll(
             'input[required]:not([type="radio"]), textarea[required], select[required]'
         );
 
         requiredFields.forEach(field => {
             if (!field.value.trim()) {
-                field.classList.add('invalid-field');
+                showClientError(field, 'This field is required.');
 
-                if (!firstInvalid) {
-                    firstInvalid = field;
-                }
+                if (!firstInvalid) firstInvalid = field;
+            } else if (field.type === 'email' && !field.validity.valid) {
+                showClientError(field, 'Please enter a valid email address.');
+
+                if (!firstInvalid) firstInvalid = field;
             }
         });
 
-        // The selected template is required.
-        const templateSelected = portfolioForm.querySelector(
-            'input[name="template"]:checked'
-        );
+        const emailField = document.getElementById('email');
 
-        const templateOptions = portfolioForm.querySelector('.templates');
+        if (emailField.value.trim() && !emailField.validity.valid) {
+            showClientError(emailField, 'Please enter a valid email address.');
+            if (!firstInvalid) firstInvalid = emailField;
+        }
+
+        const templateSelected = portfolioForm.querySelector('input[name="template"]:checked');
+        const templateOptions = document.getElementById('templateOptions');
 
         if (!templateSelected) {
             templateOptions.classList.add('invalid-field');
 
-            if (!firstInvalid) {
-                firstInvalid = templateOptions;
-            }
+            if (!firstInvalid) firstInvalid = templateOptions;
         } else {
             templateOptions.classList.remove('invalid-field');
         }
 
-        // Validate date ranges if both dates have been supplied.
+        // Date end must not be earlier than start.
         portfolioForm.querySelectorAll('input[type="date"]').forEach(start => {
-            if (!start.name.endsWith('[start_date]')) {
-                return;
-            }
+            if (!start.name.endsWith('[start_date]') || !start.value) return;
 
             const endName = start.name.replace('[start_date]', '[end_date]');
             const end = portfolioForm.querySelector(
                 `input[name="${endName}"]`
             );
 
-            if (end && start.value && end.value && end.value < start.value) {
-                end.classList.add('invalid-field');
-
-                if (!firstInvalid) {
-                    firstInvalid = end;
-                }
+            if (end && end.value && end.value < start.value) {
+                showClientError(end, 'End date must be on or after the start date.');
+                if (!firstInvalid) firstInvalid = end;
             }
         });
 
         if (firstInvalid) {
             event.preventDefault();
 
-            firstInvalid.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-            });
+            firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
             if (typeof firstInvalid.focus === 'function') {
                 firstInvalid.focus({ preventScroll: true });
@@ -1987,7 +1554,6 @@
         }
     });
 
-    // Keep the project empty-state message correct after page load.
     updateProjectEmptyMessage();
 </script>
 
