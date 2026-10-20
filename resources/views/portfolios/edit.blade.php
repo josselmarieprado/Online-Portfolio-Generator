@@ -44,6 +44,50 @@
             margin: 0 auto;
         }
 
+        /* TOP NAVIGATION */
+        .top-navigation {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 10px 17px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            background: #FFFFFF;
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 800;
+            transition: background .2s, color .2s, border-color .2s;
+        }
+
+        .nav-btn:hover {
+            border-color: var(--primary);
+            background: #EEE8FF;
+            color: var(--primary-dark);
+        }
+
+        .nav-btn:focus-visible {
+            outline: 3px solid #CDB8FA;
+            outline-offset: 3px;
+        }
+
         .page-heading { margin-bottom: 25px; }
 
         .eyebrow {
@@ -624,6 +668,23 @@
                 border-radius: 15px;
             }
 
+            .top-navigation {
+                align-items: stretch;
+                margin-bottom: 22px;
+            }
+
+            .navigation-buttons {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                width: 100%;
+            }
+
+            .nav-btn {
+                width: 100%;
+                padding: 10px;
+                font-size: 12px;
+            }
+
             .intro-card { align-items: flex-start; }
             .intro-badge { font-size: 9px; }
 
@@ -641,6 +702,19 @@
 
 <body>
 <main class="container">
+
+    <!-- TOP NAVIGATION -->
+    <nav class="top-navigation" aria-label="Main navigation">
+        <div class="navigation-buttons">
+            <a href="{{ url('/') }}" class="nav-btn">
+                ← Home
+            </a>
+
+            <a href="{{ route('portfolios.index') }}" class="nav-btn">
+                Manage Portfolios
+            </a>
+        </div>
+    </nav>
 
     <header class="page-heading">
         <p class="eyebrow">YOUR FUTURE, YOUR PORTFOLIO</p>
@@ -1245,8 +1319,11 @@
             <!-- FORM ACTIONS -->
             <div class="actions">
                 <button type="submit" class="btn">Save Changes</button>
+
                 <a href="{{ route('portfolios.show', $portfolio) }}"
-                   class="btn secondary">Cancel</a>
+                   class="btn secondary">
+                    Cancel
+                </a>
             </div>
         </form>
     </section>
@@ -1261,7 +1338,9 @@
 
     function removeEntry(button) {
         const entry = button.closest('.entry');
-        if (entry) entry.remove();
+        if (entry) {
+            entry.remove();
+        }
     }
 
     function addEducation() {
@@ -1450,7 +1529,9 @@
     });
 
     window.addEventListener('beforeunload', function () {
-        if (previewUrl) URL.revokeObjectURL(previewUrl);
+        if (previewUrl) {
+            URL.revokeObjectURL(previewUrl);
+        }
     });
 </script>
 </body>
